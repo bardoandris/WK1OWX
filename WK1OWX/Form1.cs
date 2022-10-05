@@ -1,5 +1,7 @@
 
 
+using WK1OWX.Model;
+
 namespace WK1OWX
 {
 	public partial class Form1 : Form
@@ -23,13 +25,30 @@ namespace WK1OWX
 				Multiselect = false,
 				InitialDirectory = Application.StartupPath
 			};
-			
+
 			if (ofd.ShowDialog() == DialogResult.OK)
 			{
-				var lines =File.ReadAllLines(ofd.FileName);
-				Works = new Loader<Work>().ParseLines(lines, Work.ParseWork);
+				try
+				{
+
+					Works = new Loader<Work>().LoadFromFile(ofd.FileName, (name, cost, time) =>
+						new Work(name, int.Parse(time), int.Parse(cost)));
+					ApplicationState.GetApplicationState.Reset();
+
+				}catch(IOException ex)
+				{
+					MessageBox.Show(ex.ToString());
+				}catch(Exception ex)
+				{
+					MessageBox.Show(ex.ToString());
+				}
 				return;
 			}
+		}
+
+		private void munkalapToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			new ShopOrderPage(Works).Show();
 		}
 	}
 }

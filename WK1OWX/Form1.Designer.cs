@@ -32,6 +32,7 @@
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.Menu = new System.Windows.Forms.MenuStrip();
 			this.FileMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+			this.munkalapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.Menu.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -43,7 +44,8 @@
 			// Menu
 			// 
 			this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.FileMenuButton});
+            this.FileMenuButton,
+            this.munkalapToolStripMenuItem});
 			this.Menu.Location = new System.Drawing.Point(0, 0);
 			this.Menu.Name = "Menu";
 			this.Menu.Size = new System.Drawing.Size(800, 24);
@@ -56,6 +58,13 @@
 			this.FileMenuButton.Size = new System.Drawing.Size(101, 20);
 			this.FileMenuButton.Text = "Fájl Megnyitása";
 			this.FileMenuButton.Click += new System.EventHandler(this.fájlMegnyitásaToolStripMenuItem_Click);
+			// 
+			// munkalapToolStripMenuItem
+			// 
+			this.munkalapToolStripMenuItem.Name = "munkalapToolStripMenuItem";
+			this.munkalapToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+			this.munkalapToolStripMenuItem.Text = "Munkalap...";
+			this.munkalapToolStripMenuItem.Click += new System.EventHandler(this.munkalapToolStripMenuItem_Click);
 			// 
 			// Form1
 			// 
@@ -78,5 +87,6 @@
 		private ContextMenuStrip contextMenuStrip1;
 		private MenuStrip Menu;
 		private ToolStripMenuItem FileMenuButton;
+		private ToolStripMenuItem munkalapToolStripMenuItem;
 	}
 }
