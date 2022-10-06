@@ -23,13 +23,12 @@ namespace WK1OWX
 
 		private void FillWorks()
 		{
-			
+			WorkTable.RowStyles.Clear();
 			WorkTable.RowCount = workOptions.Count;
-			
 			for (int i = 0; i < WorkTable.RowStyles.Count; i++)
 			{
-				WorkTable.RowStyles[i].Height = 50;
 				WorkTable.RowStyles[i].SizeType = SizeType.Absolute;
+				WorkTable.RowStyles[i].Height = 200;
 			}
 			WorkTable.Refresh();
 			int row = 0;
@@ -38,12 +37,22 @@ namespace WK1OWX
 			{
 				Label NameLabel = new();
 				NameLabel.Text = work.Name;
-				NameLabel.AutoSize = false;
-				WorkTable.Controls.Add(NameLabel, 0,row++);
+				NameLabel.Width = (int)WorkTable.ColumnStyles[0].Width * WorkTable.Width - 20;
+				WorkTable.Controls.Add(NameLabel, 0,row);
+				Label materialCost = new();
+				materialCost.Text = work.MaterialCost.ToString();
+				WorkTable.Controls.Add(materialCost, 1, row);
+				CheckBox SelectedBox = new CheckBox() { Checked = false };
+				WorkTable.Controls.Add(SelectedBox, 2, row);
+				Label TimeCost
 				WorkTable.Refresh();
 			}
 
 		}
 
+		private void RogzitesGomb_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

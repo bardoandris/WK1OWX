@@ -31,22 +31,27 @@
 			this.WorkTable = new System.Windows.Forms.TableLayoutPanel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.RogzitesGomb = new System.Windows.Forms.Button();
+			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// WorkTable
 			// 
+			this.WorkTable.AutoScroll = true;
+			this.WorkTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.WorkTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
 			this.WorkTable.ColumnCount = 5;
-			this.WorkTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.23981F));
-			this.WorkTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.28404F));
-			this.WorkTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.59989F));
-			this.WorkTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.876256F));
-			this.WorkTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 254F));
-			this.WorkTable.Location = new System.Drawing.Point(12, 42);
+			this.WorkTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.25225F));
+			this.WorkTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.12312F));
+			this.WorkTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.61562F));
+			this.WorkTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.036144F));
+			this.WorkTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 215F));
+			this.WorkTable.Location = new System.Drawing.Point(1, 32);
 			this.WorkTable.Name = "WorkTable";
 			this.WorkTable.RowCount = 1;
 			this.WorkTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-			this.WorkTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-			this.WorkTable.Size = new System.Drawing.Size(776, 396);
+			this.WorkTable.Size = new System.Drawing.Size(570, 273);
 			this.WorkTable.TabIndex = 0;
 			// 
 			// label1
@@ -67,16 +72,36 @@
 			this.label2.TabIndex = 2;
 			this.label2.Text = "Anyagköltség";
 			// 
+			// panel1
+			// 
+			this.panel1.Controls.Add(this.RogzitesGomb);
+			this.panel1.Location = new System.Drawing.Point(1, 276);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(570, 51);
+			this.panel1.TabIndex = 3;
+			// 
+			// RogzitesGomb
+			// 
+			this.RogzitesGomb.Location = new System.Drawing.Point(482, 16);
+			this.RogzitesGomb.Name = "RogzitesGomb";
+			this.RogzitesGomb.Size = new System.Drawing.Size(75, 23);
+			this.RogzitesGomb.TabIndex = 0;
+			this.RogzitesGomb.Text = "Rögzítés";
+			this.RogzitesGomb.UseVisualStyleBackColor = true;
+			this.RogzitesGomb.Click += new System.EventHandler(this.RogzitesGomb_Click);
+			// 
 			// ShopOrderPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(570, 327);
+			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.WorkTable);
 			this.Name = "ShopOrderPage";
 			this.Text = "ShopOrderPage";
+			this.panel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -87,5 +112,7 @@
 		private TableLayoutPanel WorkTable;
 		private Label label1;
 		private Label label2;
+		private Panel panel1;
+		private Button RogzitesGomb;
 	}
 }
