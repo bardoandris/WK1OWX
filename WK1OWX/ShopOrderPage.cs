@@ -13,14 +13,14 @@ namespace WK1OWX
 {
 	public partial class ShopOrderPage : Form
 	{
-		List<Tuple<Work, CheckBox?>> workOptions;
+		Dictionary<Work, CheckBox?> workOptions;
 		public ShopOrderPage(List<Work> workOptions)
 		{
-			workOptions = new();
+			this.workOptions = new();
 			InitializeComponent();
 			foreach (var work in workOptions)
 			{
-				workOptions.Add(new Tuple<Work, CheckBox?>(work, null)); //Dictionary talán??
+				this.workOptions.Add(work, null); //Dictionary talán??
 			}
 			FillWorks();
 		}
@@ -37,19 +37,18 @@ namespace WK1OWX
 			WorkTable.Refresh();
 			int row = 0;
 			
-			foreach (Work work in workOptions)
+			foreach (Work work in workOptions.Keys)
 			{
-				Label NameLabel = new();
-				NameLabel.Text = work.Name;
-				NameLabel.Width = (int)WorkTable.ColumnStyles[0].Width * WorkTable.Width - 20;
-				WorkTable.Controls.Add(NameLabel, 0,row);
-				Label materialCost = new();
-				materialCost.Text = work.MaterialCost.ToString();
-				WorkTable.Controls.Add(materialCost, 1, row);
+				Label NameLabel = InitLabel(work.Name);
+					NameLabel.Width = (int)WorkTable.ColumnStyles[0].Width * WorkTable.Width - 20;
+					WorkTable.Controls.Add(NameLabel, 0,row);
+				Label materialCost = InitLabel(work.MaterialCost.ToString());
+					WorkTable.Controls.Add(materialCost, 1, row);
 				CheckBox SelectedBox = new CheckBox() { Checked = false };
-				WorkTable.Controls.Add(SelectedBox, 3, row);
-				Label time = new Label() { Text = $"{(work.Hours > 0 ? work.Hours + "ó" : "")} { work.Minutes }p" };
-				WorkTable.Controls.Add(time, 2, row);
+					WorkTable.Controls.Add(SelectedBox, 3, row);
+					workOptions.
+				Label time = InitLabel(work.DisplayTime);
+					WorkTable.Controls.Add(time, 2, row);
 				WorkTable.Refresh();
 				row++;
 			}
@@ -60,6 +59,10 @@ namespace WK1OWX
 		{
 
 		}
+		private Label InitLabel(string text)
+		{
+			return new Label() { Text = text };
+			}
 		private void LinkCheckBox(Work work, CheckBox check)
 		{
 			

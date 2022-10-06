@@ -31,14 +31,23 @@ namespace WK1OWX
 				try
 				{
 
-					Works = new Loader<Work>().LoadFromFile(ofd.FileName, (name, cost, time) =>
-						new Work(name, int.Parse(time), int.Parse(cost)));
+					Works = new Loader<Work>().LoadFromFile(ofd.FileName, Parser.Parse);
 					ApplicationState.GetApplicationState.Reset();
 
-				}catch(IOException ex)
+				}
+				catch (IOException ex)
 				{
 					MessageBox.Show(ex.ToString());
-				}catch(Exception ex)
+				}
+				catch (NullReferenceException ex)
+				{
+					MessageBox.Show(ex.ToString());
+				}
+				catch (IndexOutOfRangeException ex)
+				{
+					MessageBox.Show("Rossz formátumú fájl!\n"+ ex.ToString());
+				}
+				catch (Exception ex)
 				{
 					MessageBox.Show(ex.ToString());
 				}

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WK1OWX.Model
+﻿namespace WK1OWX.Model
 {
     public class Work
     {
@@ -12,6 +6,14 @@ namespace WK1OWX.Model
         public string Name { get; }
         public int Minutes { get { return minutes % 60; } }
         public int Hours { get { return minutes / 60; } }
+        public string DisplayTime
+        {
+            get
+            {
+                return $"{(Hours > 0 ? Hours + "ó " : "")}" +
+					$"{(Minutes > 0 ? Minutes+"p" : "")}";
+            }
+        }
         public int MaterialCost { get { return materialCost; } }
         public Work(string Name, int minutes, int materialCost)
         {
@@ -19,7 +21,7 @@ namespace WK1OWX.Model
             this.materialCost = materialCost;
             this.Name = Name;
         }
-        
+
     }
 
 }
