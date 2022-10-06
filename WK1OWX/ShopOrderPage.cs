@@ -13,11 +13,15 @@ namespace WK1OWX
 {
 	public partial class ShopOrderPage : Form
 	{
-		List<Work> workOptions;
+		List<Tuple<Work, CheckBox?>> workOptions;
 		public ShopOrderPage(List<Work> workOptions)
 		{
+			workOptions = new();
 			InitializeComponent();
-			this.workOptions = workOptions;
+			foreach (var work in workOptions)
+			{
+				workOptions.Add(new Tuple<Work, CheckBox?>(work, null)); //Dictionary talán??
+			}
 			FillWorks();
 		}
 
@@ -43,9 +47,11 @@ namespace WK1OWX
 				materialCost.Text = work.MaterialCost.ToString();
 				WorkTable.Controls.Add(materialCost, 1, row);
 				CheckBox SelectedBox = new CheckBox() { Checked = false };
-				WorkTable.Controls.Add(SelectedBox, 2, row);
-				Label TimeCost
+				WorkTable.Controls.Add(SelectedBox, 3, row);
+				Label time = new Label() { Text = $"{(work.Hours > 0 ? work.Hours + "ó" : "")} { work.Minutes }p" };
+				WorkTable.Controls.Add(time, 2, row);
 				WorkTable.Refresh();
+				row++;
 			}
 
 		}
@@ -53,6 +59,10 @@ namespace WK1OWX
 		private void RogzitesGomb_Click(object sender, EventArgs e)
 		{
 
+		}
+		private void LinkCheckBox(Work work, CheckBox check)
+		{
+			
 		}
 	}
 }
