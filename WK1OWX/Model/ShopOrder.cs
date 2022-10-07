@@ -32,5 +32,15 @@
 		{
 			Items = new List<Work>();
 		}
+		public void AddItem(Work work)
+		{
+			Items.Add(work);
+			Items = Items.Distinct().ToList();
+		}
+		public void DeleteItem(Work work)
+		{
+			Items.Remove(work);
+			Items = Items.Distinct().ToList();
+		}
 	}
 }

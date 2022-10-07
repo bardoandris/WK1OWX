@@ -32,6 +32,10 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.WorkCostNumberLabel = new System.Windows.Forms.Label();
+			this.WorkCostTitleLabel = new System.Windows.Forms.Label();
+			this.MaterialCostNumberLabel = new System.Windows.Forms.Label();
+			this.MaterialCostTitleLabel = new System.Windows.Forms.Label();
 			this.RogzitesGomb = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
@@ -74,11 +78,55 @@
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this.WorkCostNumberLabel);
+			this.panel1.Controls.Add(this.WorkCostTitleLabel);
+			this.panel1.Controls.Add(this.MaterialCostNumberLabel);
+			this.panel1.Controls.Add(this.MaterialCostTitleLabel);
 			this.panel1.Controls.Add(this.RogzitesGomb);
 			this.panel1.Location = new System.Drawing.Point(1, 276);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(570, 51);
 			this.panel1.TabIndex = 3;
+			// 
+			// WorkCostNumberLabel
+			// 
+			this.WorkCostNumberLabel.AutoSize = true;
+			this.WorkCostNumberLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.WorkCostNumberLabel.ForeColor = System.Drawing.Color.DarkGreen;
+			this.WorkCostNumberLabel.Location = new System.Drawing.Point(292, 16);
+			this.WorkCostNumberLabel.Name = "WorkCostNumberLabel";
+			this.WorkCostNumberLabel.Size = new System.Drawing.Size(27, 19);
+			this.WorkCostNumberLabel.TabIndex = 4;
+			this.WorkCostNumberLabel.Text = "0ft";
+			// 
+			// WorkCostTitleLabel
+			// 
+			this.WorkCostTitleLabel.AutoSize = true;
+			this.WorkCostTitleLabel.Location = new System.Drawing.Point(198, 18);
+			this.WorkCostTitleLabel.Name = "WorkCostTitleLabel";
+			this.WorkCostTitleLabel.Size = new System.Drawing.Size(88, 15);
+			this.WorkCostTitleLabel.TabIndex = 3;
+			this.WorkCostTitleLabel.Text = "Munkaköltség: ";
+			// 
+			// MaterialCostNumberLabel
+			// 
+			this.MaterialCostNumberLabel.AutoSize = true;
+			this.MaterialCostNumberLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.MaterialCostNumberLabel.ForeColor = System.Drawing.Color.Red;
+			this.MaterialCostNumberLabel.Location = new System.Drawing.Point(110, 16);
+			this.MaterialCostNumberLabel.Name = "MaterialCostNumberLabel";
+			this.MaterialCostNumberLabel.Size = new System.Drawing.Size(27, 19);
+			this.MaterialCostNumberLabel.TabIndex = 2;
+			this.MaterialCostNumberLabel.Text = "0ft";
+			// 
+			// MaterialCostTitleLabel
+			// 
+			this.MaterialCostTitleLabel.AutoSize = true;
+			this.MaterialCostTitleLabel.Location = new System.Drawing.Point(19, 18);
+			this.MaterialCostTitleLabel.Name = "MaterialCostTitleLabel";
+			this.MaterialCostTitleLabel.Size = new System.Drawing.Size(85, 15);
+			this.MaterialCostTitleLabel.TabIndex = 1;
+			this.MaterialCostTitleLabel.Text = "Anyagköltség: ";
 			// 
 			// RogzitesGomb
 			// 
@@ -102,6 +150,7 @@
 			this.Name = "ShopOrderPage";
 			this.Text = "ShopOrderPage";
 			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -114,5 +163,9 @@
 		private Label label2;
 		private Panel panel1;
 		private Button RogzitesGomb;
+		private Label MaterialCostTitleLabel;
+		private Label WorkCostNumberLabel;
+		private Label WorkCostTitleLabel;
+		private Label MaterialCostNumberLabel;
 	}
 }

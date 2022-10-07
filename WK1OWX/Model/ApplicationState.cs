@@ -2,12 +2,12 @@
 {
 	internal class ApplicationState
 	{
-		List<Work> WorkOptionList;
-		List<ShopOrder> ShopOrderList;
+		public List<Work> WorkOptionList { get; private set; }
+		public List<ShopOrder> ShopOrderList { get; private set; }
 		private static object _lock = new object();
 		private static ApplicationState? instance;
 		//This Property might be accessed by multiple threads at the same time
-		public static ApplicationState GetApplicationState
+		public static ApplicationState ApplicationStateInstance
 		{
 			get
 			{
@@ -26,10 +26,14 @@
 			WorkOptionList = new();
 			ShopOrderList = new();
 		}
-		public void Reset()
+		public void Reset(List<Work> works)
 		{
-			WorkOptionList = new();
+			WorkOptionList = works;
 			ShopOrderList = new();
+		}
+		public void AddShopOrder(ShopOrder shop)
+		{
+			ShopOrderList.Add (shop);
 		}
 	}
 }

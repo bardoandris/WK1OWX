@@ -33,6 +33,9 @@
 			this.Menu = new System.Windows.Forms.MenuStrip();
 			this.FileMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this.munkalapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.fizetésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.névjegyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.kilépésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.Menu.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -45,7 +48,10 @@
 			// 
 			this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileMenuButton,
-            this.munkalapToolStripMenuItem});
+            this.munkalapToolStripMenuItem,
+            this.fizetésToolStripMenuItem,
+            this.névjegyToolStripMenuItem,
+            this.kilépésToolStripMenuItem});
 			this.Menu.Location = new System.Drawing.Point(0, 0);
 			this.Menu.Name = "Menu";
 			this.Menu.Size = new System.Drawing.Size(800, 24);
@@ -61,10 +67,33 @@
 			// 
 			// munkalapToolStripMenuItem
 			// 
+			this.munkalapToolStripMenuItem.Enabled = false;
 			this.munkalapToolStripMenuItem.Name = "munkalapToolStripMenuItem";
 			this.munkalapToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
 			this.munkalapToolStripMenuItem.Text = "Munkalap...";
 			this.munkalapToolStripMenuItem.Click += new System.EventHandler(this.munkalapToolStripMenuItem_Click);
+			// 
+			// fizetésToolStripMenuItem
+			// 
+			this.fizetésToolStripMenuItem.Enabled = false;
+			this.fizetésToolStripMenuItem.Name = "fizetésToolStripMenuItem";
+			this.fizetésToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+			this.fizetésToolStripMenuItem.Text = "Fizetés...";
+			this.fizetésToolStripMenuItem.Click += new System.EventHandler(this.fizetésToolStripMenuItem_Click);
+			// 
+			// névjegyToolStripMenuItem
+			// 
+			this.névjegyToolStripMenuItem.Name = "névjegyToolStripMenuItem";
+			this.névjegyToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+			this.névjegyToolStripMenuItem.Text = "Névjegy...";
+			this.névjegyToolStripMenuItem.Click += new System.EventHandler(this.névjegyToolStripMenuItem_Click);
+			// 
+			// kilépésToolStripMenuItem
+			// 
+			this.kilépésToolStripMenuItem.Name = "kilépésToolStripMenuItem";
+			this.kilépésToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+			this.kilépésToolStripMenuItem.Text = "Kilépés...";
+			this.kilépésToolStripMenuItem.Click += new System.EventHandler(this.kilépésToolStripMenuItem_Click);
 			// 
 			// Form1
 			// 
@@ -88,5 +117,8 @@
 		private MenuStrip Menu;
 		private ToolStripMenuItem FileMenuButton;
 		private ToolStripMenuItem munkalapToolStripMenuItem;
+		private ToolStripMenuItem fizetésToolStripMenuItem;
+		private ToolStripMenuItem névjegyToolStripMenuItem;
+		private ToolStripMenuItem kilépésToolStripMenuItem;
 	}
 }
