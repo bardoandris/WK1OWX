@@ -4,11 +4,11 @@ using WK1OWX.Model;
 
 namespace WK1OWX
 {
-	public partial class Form1 : Form
+	public partial class MainForm : Form
 	{
 		bool ConfirmClose = false;
 		List<Work> Works;
-		public Form1()
+		public MainForm()
 		{
 			Works = new List<Work>();
 			InitializeComponent();
@@ -27,7 +27,7 @@ namespace WK1OWX
 				Multiselect = false,
 				InitialDirectory = Application.StartupPath
 			};
-
+			
 			if (ofd.ShowDialog() == DialogResult.OK)
 			{
 				try
@@ -64,12 +64,14 @@ namespace WK1OWX
 
 		private void munkalapToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			new ShopOrderPage().Show();
+
+			new ShopOrderPage().ShowDialog();
+
 		}
 
 		private void fizetésToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			new PayForm().Show();
+			new PayForm().ShowDialog();
 		}
 
 		private void névjegyToolStripMenuItem_Click(object sender, EventArgs e)

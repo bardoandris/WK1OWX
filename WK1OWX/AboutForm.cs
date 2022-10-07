@@ -12,6 +12,7 @@ namespace WK1OWX
 {
 	public partial class AboutForm : Form
 	{
+		
 		public AboutForm()
 		{
 			InitializeComponent();
