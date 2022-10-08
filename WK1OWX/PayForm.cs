@@ -25,7 +25,7 @@ namespace WK1OWX
 			ShopOrder_CountLabel.Text = AppState.ShopOrderList.Count.ToString();
 			TimeCost_SumLabel.Text = TotalTimeCost.ToString()+"ft";
 			MaterialCost_SumLabel.Text = TotalMaterialCost.ToString() + "ft";
-			SumTotal_SumLabel.Text = TotalMaterialCost.ToString()+"ft";
+			SumTotal_SumLabel.Text = TotalCost.ToString()+"ft";
 
 		}
 	}
