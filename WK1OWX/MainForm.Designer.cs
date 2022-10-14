@@ -1,6 +1,6 @@
 ﻿namespace WK1OWX
 {
-	partial class Form1
+	partial class MainForm
 	{
 		/// <summary>
 		///  Required designer variable.
@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.Menu = new System.Windows.Forms.MenuStrip();
 			this.FileMenuButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,7 +37,9 @@
 			this.fizetésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.névjegyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.kilépésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.MainBackGroundImage = new System.Windows.Forms.PictureBox();
 			this.Menu.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.MainBackGroundImage)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// contextMenuStrip1
@@ -54,7 +57,7 @@
             this.kilépésToolStripMenuItem});
 			this.Menu.Location = new System.Drawing.Point(0, 0);
 			this.Menu.Name = "Menu";
-			this.Menu.Size = new System.Drawing.Size(800, 24);
+			this.Menu.Size = new System.Drawing.Size(460, 24);
 			this.Menu.TabIndex = 2;
 			this.Menu.Text = "menuStrip1";
 			// 
@@ -95,17 +98,29 @@
 			this.kilépésToolStripMenuItem.Text = "Kilépés...";
 			this.kilépésToolStripMenuItem.Click += new System.EventHandler(this.kilépésToolStripMenuItem_Click);
 			// 
-			// Form1
+			// MainBackGroundImage
+			// 
+			this.MainBackGroundImage.Image = ((System.Drawing.Image)(resources.GetObject("MainBackGroundImage.Image")));
+			this.MainBackGroundImage.Location = new System.Drawing.Point(12, 30);
+			this.MainBackGroundImage.Name = "MainBackGroundImage";
+			this.MainBackGroundImage.Size = new System.Drawing.Size(436, 261);
+			this.MainBackGroundImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.MainBackGroundImage.TabIndex = 3;
+			this.MainBackGroundImage.TabStop = false;
+			// 
+			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(460, 303);
+			this.Controls.Add(this.MainBackGroundImage);
 			this.Controls.Add(this.Menu);
-			this.Name = "Form1";
-			this.Text = "Form1";
+			this.Name = "MainForm";
+			this.Text = "Autószerelde v1";
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.Menu.ResumeLayout(false);
 			this.Menu.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.MainBackGroundImage)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -120,5 +135,6 @@
 		private ToolStripMenuItem fizetésToolStripMenuItem;
 		private ToolStripMenuItem névjegyToolStripMenuItem;
 		private ToolStripMenuItem kilépésToolStripMenuItem;
+		private PictureBox MainBackGroundImage;
 	}
 }
