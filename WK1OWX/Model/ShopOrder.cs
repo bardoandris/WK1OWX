@@ -23,9 +23,9 @@
 		{
 			get
 			{
-				
-				return(from item in Items
-						   select item.MaterialCost).Sum();
+
+				return (from item in Items
+						select item.MaterialCost).Sum();
 			}
 		}
 		public ShopOrder()

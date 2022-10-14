@@ -20,14 +20,14 @@ namespace WK1OWX
 		{
 			if (!CommitedtoClosing)
 			{
-				if(MessageBox.Show("Biztosan szeretné mentés nélkül bezárni ezt az ablakot?", "Figyelmeztetés", MessageBoxButtons.YesNo) == DialogResult.Yes)
+				if (MessageBox.Show("Biztosan szeretné mentés nélkül bezárni ezt az ablakot?", "Figyelmeztetés", MessageBoxButtons.YesNo) == DialogResult.Yes)
 				{
 					CommitedtoClosing = true;
 					this.Close();
 				}
 				else
 				{
-				e.Cancel = true;
+					e.Cancel = true;
 				}
 			}
 		}
@@ -101,7 +101,7 @@ namespace WK1OWX
 
 		}
 
-		
+
 
 	}
 }

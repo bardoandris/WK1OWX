@@ -33,7 +33,7 @@
 		}
 		public void AddShopOrder(ShopOrder shop)
 		{
-			ShopOrderList.Add (shop);
+			ShopOrderList.Add(shop);
 		}
 	}
 }

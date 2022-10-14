@@ -11,7 +11,7 @@
             get
             {
                 return $"{(Hours > 0 ? Hours + "ó " : "")}" +
-					$"{(Minutes > 0 ? Minutes+"p" : "")}";
+                    $"{(Minutes > 0 ? Minutes + "p" : "")}";
             }
         }
         public int MaterialCost { get { return materialCost; } }

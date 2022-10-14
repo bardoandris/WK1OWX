@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace WK1OWX
+﻿namespace WK1OWX
 {
 	public partial class AboutForm : Form
 	{
@@ -23,23 +12,30 @@ namespace WK1OWX
 		private void AboutForm_Load(object sender, EventArgs e)
 		{
 			CancellationToken = cancellationTokenSource.Token;
-			UpdateClock(CancellationToken);
+			Task.Run(() => UpdateClock(CancellationToken));
 		}
 
 		private void CloseButton_Click(object sender, EventArgs e)
 		{
 			cancellationTokenSource.Cancel();
+			cancellationTokenSource.Dispose();
 			this.Close();
 		}
-		private async void UpdateClock(CancellationToken token)
+		private void UpdateClock(CancellationToken token)
 		{
-			while (!token.IsCancellationRequested)
+			while (!CancellationToken.IsCancellationRequested)
 			{
-			//	try
-			//	{
+				try
+				{
+					//néha nem frissül a cancellation időben, így érvénytelenül próbál módosítani a labelen 
 					TimeLabel.Invoke(() => TimeLabel.Text = "Jelenlegi idő: " + DateTime.Now);
-					await Task.Delay(1000);
-				//}catch(Exception e) { break; }
+				}
+				catch (InvalidOperationException e)
+				{
+					Console.WriteLine(e.ToString());
+				}
+				Thread.Sleep(1000);
+
 			}
 		}
 	}

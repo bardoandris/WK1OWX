@@ -27,18 +27,18 @@ namespace WK1OWX
 				Multiselect = false,
 				InitialDirectory = Application.StartupPath
 			};
-			
+
 			if (ofd.ShowDialog() == DialogResult.OK)
 			{
 				try
 				{
-					fizetésToolStripMenuItem.Enabled = false;	//if Loading in new data fails, These Buttons
-					munkalapToolStripMenuItem.Enabled = false;	//will stay disabled this way
+					fizetésToolStripMenuItem.Enabled = false;   //if Loading in new data fails, These Buttons
+					munkalapToolStripMenuItem.Enabled = false;  //will stay disabled this way
 
 					Works = new Loader<Work>().LoadFromFile(ofd.FileName, Parser.Parse);
 					ApplicationState.ApplicationStateInstance.Reset(Works);
-					
-					fizetésToolStripMenuItem.Enabled = true;	//enable if everything goes okay
+
+					fizetésToolStripMenuItem.Enabled = true;    //enable if everything goes okay
 					munkalapToolStripMenuItem.Enabled = true;
 
 				}
@@ -52,7 +52,7 @@ namespace WK1OWX
 				}
 				catch (IndexOutOfRangeException ex)
 				{
-					MessageBox.Show("Rossz formátumú fájl!\n"+ ex.ToString());
+					MessageBox.Show("Rossz formátumú fájl!\n" + ex.ToString());
 				}
 				catch (Exception ex)
 				{
@@ -79,16 +79,16 @@ namespace WK1OWX
 			new AboutForm().Show();
 		}
 
-		private void kilépésToolStripMenuItem_Click(object sender, EventArgs e)
+		private void kilépésToolStripMenuItem_Click(object? sender, EventArgs e)
 		{
-			if (!ConfirmClose )
+			if (!ConfirmClose)
 			{
 				if (MessageBox.Show("Biztosan szeretné bezárni ezt az ablakot?", "Figyelmeztetés", MessageBoxButtons.YesNo) == DialogResult.Yes)
 				{
 					ConfirmClose = true;
 					Application.Exit();
 				}
-			
+
 			}
 		}
 	}
