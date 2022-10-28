@@ -45,7 +45,7 @@
 			this.WorkTable.AutoScroll = true;
 			this.WorkTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.WorkTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
-			this.WorkTable.ColumnCount = 5;
+			this.WorkTable.ColumnCount = 1;
 			this.WorkTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.14027F));
 			this.WorkTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.92308F));
 			this.WorkTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.66063F));
@@ -70,7 +70,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(179, 14);
+			this.label2.Location = new System.Drawing.Point(143, 14);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(79, 15);
 			this.label2.TabIndex = 2;

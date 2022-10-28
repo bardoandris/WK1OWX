@@ -15,7 +15,7 @@
 					(minutes % 30 == 0 ? minutes / 30 : minutes / 30 + 1);
 
 
-				return totalHalfHours * 7500;
+				return totalHalfHours * ApplicationState.ApplicationStateInstance.HalfHourCost;
 
 			}
 		}

@@ -14,6 +14,10 @@
                     $"{(Minutes > 0 ? Minutes + "p" : "")}";
             }
         }
+        public string TimeCost { get
+            {
+                return (ApplicationState.ApplicationStateInstance.HalfHourCost * ((minutes /30) + 1)).ToString();
+            } }
         public int MaterialCost { get { return materialCost; } }
         public Work(string Name, int minutes, int materialCost)
         {

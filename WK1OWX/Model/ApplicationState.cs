@@ -2,11 +2,12 @@
 {
 	internal class ApplicationState
 	{
+		public int HalfHourCost { get; } = 7500;
 		public List<Work> WorkOptionList { get; private set; }
 		public List<ShopOrder> ShopOrderList { get; private set; }
 		private static object _lock = new object();
 		private static ApplicationState? instance;
-		//This Property might be accessed by multiple threads at the same time
+		//This Property might be accessed by multiple threads at the same time, synronization is needed
 		public static ApplicationState ApplicationStateInstance
 		{
 			get

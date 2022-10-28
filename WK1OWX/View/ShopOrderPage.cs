@@ -43,36 +43,22 @@ namespace WK1OWX
 			}
 			WorkTable.Refresh();
 			int row = 0;
-
-			foreach (Work work in ApplicationState.ApplicationStateInstance.WorkOptionList)
+			var instance = ApplicationState.ApplicationStateInstance;
+			foreach (var item in instance.WorkOptionList)
 			{
-				Label NameLabel = InitLabel(work.Name);
-				NameLabel.Width = (int)WorkTable.ColumnStyles[0].Width * WorkTable.Width - 20;
-				WorkTable.Controls.Add(NameLabel, 0, row);
-				Label materialCost = InitLabel(work.MaterialCost.ToString());
-				WorkTable.Controls.Add(materialCost, 1, row);
-				CheckBox SelectedBox = new CheckBox() { Checked = false };
-				WorkTable.Controls.Add(SelectedBox, 3, row);
-				workOptions.Add(SelectedBox, work);
-				SelectedBox.CheckedChanged += SelectedBox_CheckedChanged;
-				Label time = InitLabel(work.DisplayTime);
-				WorkTable.Controls.Add(time, 2, row);
-				WorkTable.Refresh();
-				row++;
+				var work = new WorkControl(item);
+				work.SelectionChanged += SelectedBox_CheckedChanged;
+				WorkTable.Controls.Add(work, 0, row++);
 			}
 
 		}
 
-		private void SelectedBox_CheckedChanged(object? sender, EventArgs e)
+		private void SelectedBox_CheckedChanged(WorkControl work, bool isChecked)
 		{
-			var box = sender as CheckBox;
-			if (box == null)
+
+			if (isChecked)
 			{
-				throw new ArgumentNullException("This is not called by the Checkbox");
-			}
-			if (box.Checked)
-			{
-				ShopOrder.AddItem(workOptions[box]);
+				ShopOrder.AddItem(work.Work);
 				WorkCostNumberLabel.Text = ShopOrder.TotalTimeCost
 				.ToString() + "ft";
 				MaterialCostNumberLabel.Text = ShopOrder.TotalMaterialCost
@@ -80,7 +66,7 @@ namespace WK1OWX
 			}
 			else
 			{
-				ShopOrder.DeleteItem(workOptions[box]);
+				ShopOrder.DeleteItem(work.Work);
 				WorkCostNumberLabel.Text = ShopOrder.TotalTimeCost
 					.ToString() + "ft";
 				MaterialCostNumberLabel.Text = ShopOrder.TotalMaterialCost

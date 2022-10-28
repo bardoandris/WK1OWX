@@ -72,7 +72,7 @@
 			// 
 			this.SumTotal_TitleLabel.AutoSize = true;
 			this.SumTotal_TitleLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.SumTotal_TitleLabel.Location = new System.Drawing.Point(12, 116);
+			this.SumTotal_TitleLabel.Location = new System.Drawing.Point(12, 120);
 			this.SumTotal_TitleLabel.Name = "SumTotal_TitleLabel";
 			this.SumTotal_TitleLabel.Size = new System.Drawing.Size(72, 20);
 			this.SumTotal_TitleLabel.TabIndex = 3;
@@ -114,11 +114,11 @@
 			// SumTotal_SumLabel
 			// 
 			this.SumTotal_SumLabel.AutoSize = true;
-			this.SumTotal_SumLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.SumTotal_SumLabel.ForeColor = System.Drawing.Color.Coral;
+			this.SumTotal_SumLabel.Font = new System.Drawing.Font("Segoe UI", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+			this.SumTotal_SumLabel.ForeColor = System.Drawing.Color.Red;
 			this.SumTotal_SumLabel.Location = new System.Drawing.Point(131, 116);
 			this.SumTotal_SumLabel.Name = "SumTotal_SumLabel";
-			this.SumTotal_SumLabel.Size = new System.Drawing.Size(51, 20);
+			this.SumTotal_SumLabel.Size = new System.Drawing.Size(65, 25);
 			this.SumTotal_SumLabel.TabIndex = 7;
 			this.SumTotal_SumLabel.Text = "label1";
 			// 
