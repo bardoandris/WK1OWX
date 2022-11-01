@@ -31,6 +31,7 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.EditToolstripMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.Menu = new System.Windows.Forms.MenuStrip();
 			this.FileMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this.munkalapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,7 +46,16 @@
 			// contextMenuStrip1
 			// 
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+			this.contextMenuStrip1.OwnerItem = this.EditToolstripMenu;
+			this.contextMenuStrip1.Size = new System.Drawing.Size(181, 26);
+			// 
+			// EditToolstripMenu
+			// 
+			this.EditToolstripMenu.DropDown = this.contextMenuStrip1;
+			this.EditToolstripMenu.Enabled = false;
+			this.EditToolstripMenu.Name = "EditToolstripMenu";
+			this.EditToolstripMenu.Size = new System.Drawing.Size(142, 20);
+			this.EditToolstripMenu.Text = "Rendelés Szerkesztése...";
 			// 
 			// Menu
 			// 
@@ -54,10 +64,11 @@
             this.munkalapToolStripMenuItem,
             this.fizetésToolStripMenuItem,
             this.névjegyToolStripMenuItem,
+            this.EditToolstripMenu,
             this.kilépésToolStripMenuItem});
 			this.Menu.Location = new System.Drawing.Point(0, 0);
 			this.Menu.Name = "Menu";
-			this.Menu.Size = new System.Drawing.Size(460, 24);
+			this.Menu.Size = new System.Drawing.Size(532, 24);
 			this.Menu.TabIndex = 2;
 			this.Menu.Text = "menuStrip1";
 			// 
@@ -101,9 +112,9 @@
 			// MainBackGroundImage
 			// 
 			this.MainBackGroundImage.Image = ((System.Drawing.Image)(resources.GetObject("MainBackGroundImage.Image")));
-			this.MainBackGroundImage.Location = new System.Drawing.Point(12, 30);
+			this.MainBackGroundImage.Location = new System.Drawing.Point(0, 27);
 			this.MainBackGroundImage.Name = "MainBackGroundImage";
-			this.MainBackGroundImage.Size = new System.Drawing.Size(436, 261);
+			this.MainBackGroundImage.Size = new System.Drawing.Size(532, 303);
 			this.MainBackGroundImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.MainBackGroundImage.TabIndex = 3;
 			this.MainBackGroundImage.TabStop = false;
@@ -112,7 +123,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(460, 303);
+			this.ClientSize = new System.Drawing.Size(532, 332);
 			this.Controls.Add(this.MainBackGroundImage);
 			this.Controls.Add(this.Menu);
 			this.Name = "MainForm";
@@ -136,5 +147,6 @@
 		private ToolStripMenuItem névjegyToolStripMenuItem;
 		private ToolStripMenuItem kilépésToolStripMenuItem;
 		private PictureBox MainBackGroundImage;
+		private ToolStripMenuItem EditToolstripMenu;
 	}
 }

@@ -2,7 +2,7 @@
 {
 	internal class Parser
 	{
-		public static Work Parse(string[] columns)
+		public Work Parse(string[] columns)
 		{
 			return new Work(columns[0], int.Parse(columns[1]), int.Parse(columns[2]));
 		}

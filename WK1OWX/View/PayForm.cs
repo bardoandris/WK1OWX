@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Text;
 using WK1OWX.Model;
 
 namespace WK1OWX
@@ -18,6 +19,14 @@ namespace WK1OWX
 			TimeCost_SumLabel.Text = TotalTimeCost.ToString() + "ft";
 			MaterialCost_SumLabel.Text = TotalMaterialCost.ToString() + "ft";
 			SumTotal_SumLabel.Text = TotalCost.ToString() + "ft";
+			TotalNumberofWork_SumLabel.Text = (from Order in AppState.ShopOrderList
+											   select Order.NumberofWorks).Sum().ToString();
+			var TotalMinutes = (from Order in AppState.ShopOrderList
+											select Order.TotalTime_Minutes).Sum();
+			StringBuilder stringBuilder = new();
+			stringBuilder.Append(TotalMinutes < 60 ? "" : TotalMinutes / 60 + "ó ");
+			stringBuilder.Append(TotalMinutes % 60 + "p");
+			TotalTimeLabel_SumLabel.Text = stringBuilder.ToString();
 
 		}
 	}

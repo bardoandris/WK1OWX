@@ -6,6 +6,7 @@ namespace WK1OWX
 {
 	public partial class MainForm : Form
 	{
+		ApplicationState Appstate = ApplicationState.ApplicationStateInstance;
 		bool ConfirmClose = false;
 		List<Work> Works;
 		public MainForm()
@@ -35,8 +36,9 @@ namespace WK1OWX
 					fizetésToolStripMenuItem.Enabled = false;   //if Loading in new data fails, These Buttons
 					munkalapToolStripMenuItem.Enabled = false;  //will stay disabled this way
 
-					Works = new Loader<Work>().LoadFromFile(ofd.FileName, Parser.Parse);
+					Works = new Loader<Work>().LoadFromFile(ofd.FileName, new Parser().Parse);
 					ApplicationState.ApplicationStateInstance.Reset(Works);
+					EditToolstripMenu.Enabled = false;
 
 					fizetésToolStripMenuItem.Enabled = true;    //enable if everything goes okay
 					munkalapToolStripMenuItem.Enabled = true;
@@ -66,6 +68,7 @@ namespace WK1OWX
 		{
 
 			new ShopOrderPage().ShowDialog();
+			UpdateEditComboBox();
 
 		}
 
@@ -90,6 +93,28 @@ namespace WK1OWX
 				}
 
 			}
+		}
+
+		private void UpdateEditComboBox()
+		{
+			if (Appstate.ShopOrderList.Count > 0)
+			{
+				EditToolstripMenu.Enabled = true;
+
+			}
+			List<ShopOrder> currentOrders = Appstate.ShopOrderList;
+			EditToolstripMenu.DropDownItems.Clear();
+			for (int i = 0; i < currentOrders.Count; i++)
+			{
+				var item = new ToolStripMenuItem("Order " + i, null, OnDropDownClick);
+				EditToolstripMenu.DropDownItems.Add(item);
+			}
+		}
+		private void OnDropDownClick(object? sender, EventArgs e)
+		{
+			int index = EditToolstripMenu.DropDownItems.IndexOf(sender as ToolStripMenuItem);
+			ShopOrderPage shopOrderPage = new(Appstate.ShopOrderList[index]);
+			shopOrderPage.ShowDialog();
 		}
 	}
 }

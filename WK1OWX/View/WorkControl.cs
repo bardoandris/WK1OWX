@@ -40,5 +40,9 @@ namespace WK1OWX
 			SelectionChanged?.Invoke(this, SelectBox.Checked);
 		}
 		public event SelectionChangedHandler? SelectionChanged;
+		public void SetCheckBox(bool state)
+		{
+			SelectBox.Checked = state;
+		}
 	}
 }

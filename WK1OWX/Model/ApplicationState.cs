@@ -36,5 +36,13 @@
 		{
 			ShopOrderList.Add(shop);
 		}
+		public void RemoveShoporder(ShopOrder? shopOrder)
+		{
+			if (shopOrder != null)
+			{
+
+			ShopOrderList.Remove(shopOrder);
+			}
+		}
 	}
 }

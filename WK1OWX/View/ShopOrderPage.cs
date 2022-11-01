@@ -4,16 +4,35 @@ namespace WK1OWX
 {
 	public partial class ShopOrderPage : Form
 	{
+		readonly ShopOrder? oldShoporder;
+		readonly bool isEditing = false;
 		bool CommitedtoClosing = false;
 		ShopOrder ShopOrder { get; set; }
-		Dictionary<CheckBox, Work> workOptions;
+
 		public ShopOrderPage()
 		{
-			workOptions = new();
+
 			ShopOrder = new();
 			InitializeComponent();
 			FillWork();
+
 			this.FormClosing += ShopOrderPage_FormClosing;
+		}
+		public ShopOrderPage(ShopOrder shopOrder) : this()
+		{
+			isEditing = true;
+			ShopOrder = shopOrder.Copy();
+			oldShoporder = shopOrder;
+			foreach (var item in WorkTable.Controls)
+			{
+				if (item is WorkControl)
+				{
+					var castItem = item as WorkControl;
+					castItem.SetCheckBox(ShopOrder.ContainsElement(castItem.Work));
+				}
+
+			}
+
 		}
 
 		private void ShopOrderPage_FormClosing(object? sender, FormClosingEventArgs e)
@@ -35,7 +54,6 @@ namespace WK1OWX
 		private void FillWork()
 		{
 			WorkTable.RowStyles.Clear();
-			WorkTable.RowCount = workOptions.Count;
 			for (int i = 0; i < WorkTable.RowStyles.Count; i++)
 			{
 				WorkTable.RowStyles[i].SizeType = SizeType.Absolute;
@@ -76,17 +94,24 @@ namespace WK1OWX
 
 		private void RogzitesGomb_Click(object sender, EventArgs e)
 		{
-			ApplicationState.ApplicationStateInstance.AddShopOrder(ShopOrder);
+			var result = MessageBox.Show("El szeretné menteni a munkalapot?", "Figyelmeztetés", MessageBoxButtons.YesNo);
+			if (result != DialogResult.Yes)
+			{
+				return;
+			}
+			if (!isEditing)
+			{
+				ApplicationState.ApplicationStateInstance.AddShopOrder(ShopOrder);
+			}
+			else
+			{
+				ApplicationState.ApplicationStateInstance.RemoveShoporder(oldShoporder);
+				ApplicationState.ApplicationStateInstance.AddShopOrder(ShopOrder);
+			}
 			CommitedtoClosing = true;
 			Close();
 
 		}
-		private Label InitLabel(string text)
-		{
-			return new Label() { Text = text };
-
-		}
-
 
 
 	}
