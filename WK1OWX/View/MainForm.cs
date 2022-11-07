@@ -75,6 +75,8 @@ namespace WK1OWX
 		private void fizetésToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			new PayForm().ShowDialog();
+			Appstate.Reset(Appstate.WorkOptionList);
+			EditToolstripMenu.Enabled = false;
 		}
 
 		private void névjegyToolStripMenuItem_Click(object sender, EventArgs e)

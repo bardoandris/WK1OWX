@@ -37,6 +37,9 @@
 			this.MaterialCostNumberLabel = new System.Windows.Forms.Label();
 			this.MaterialCostTitleLabel = new System.Windows.Forms.Label();
 			this.RogzitesGomb = new System.Windows.Forms.Button();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -138,11 +141,41 @@
 			this.RogzitesGomb.UseVisualStyleBackColor = true;
 			this.RogzitesGomb.Click += new System.EventHandler(this.RogzitesGomb_Click);
 			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(249, 14);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(24, 15);
+			this.label3.TabIndex = 4;
+			this.label3.Text = "Idő";
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(325, 14);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(63, 15);
+			this.label4.TabIndex = 5;
+			this.label4.Text = "Kiválasztás";
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(471, 14);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(82, 15);
+			this.label5.TabIndex = 6;
+			this.label5.Text = "Munkaköltség";
+			// 
 			// ShopOrderPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(570, 327);
+			this.Controls.Add(this.label5);
+			this.Controls.Add(this.label4);
+			this.Controls.Add(this.label3);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
@@ -167,5 +200,8 @@
 		private Label WorkCostNumberLabel;
 		private Label WorkCostTitleLabel;
 		private Label MaterialCostNumberLabel;
+		private Label label3;
+		private Label label4;
+		private Label label5;
 	}
 }
