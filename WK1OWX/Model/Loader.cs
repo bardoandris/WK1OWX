@@ -1,4 +1,6 @@
-﻿namespace WK1OWX.Model
+﻿using System.Linq.Expressions;
+
+namespace WK1OWX.Model
 {
 	internal class Loader<T>
 	{
@@ -7,9 +9,23 @@
 		{
 			using (var reader = new StreamReader(filename))
 			{
-				while (!reader.EndOfStream)
+				try
 				{
-					list.Add(parseFunc(reader.ReadLine().Split(';')));
+					while (!reader.EndOfStream && reader != null)
+					{
+						list.Add(parseFunc(reader.ReadLine().Split(';')));
+					}
+				}
+				catch (NullReferenceException ex)
+				{
+					Console.WriteLine(ex.Message);
+					MessageBox.Show(ex.StackTrace);
+				}
+
+				catch (IOException ex)
+				{
+					Console.WriteLine(ex.Message);
+					MessageBox.Show(ex.StackTrace);
 				}
 
 
